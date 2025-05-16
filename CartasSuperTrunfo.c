@@ -28,8 +28,8 @@ int main() {
     char nome_cidade_segunda_carta[25];
     unsigned long int populacao_segunda_carta;
     float area_segunda_carta;
-    double pib_segunda_carta;
     float densidade_pop_segunda_carta;
+    double pib_segunda_carta;
     double pib_per_capita_segunda_carta;
     int numero_pontos_turisticos_segunda_carta;
     double super_poder_segunda_carta;
@@ -153,6 +153,7 @@ int main() {
 
 
     // MOSTRANDO VENCENDOR
+    /*
     printf("Comparação das cartas: \n");
     printf("População:Carta %i venceu (%i)\n", resultado_populacao, resultado_populacao == 1? 1 : 2);
     printf("Área: Carta %i venceu (%i) \n", resultado_area, resultado_area == 1? 1 : 2); 
@@ -161,6 +162,20 @@ int main() {
     printf("Densidade populacional: Carta %i venceu (%i)\n", resultado_densidade_populacao, resultado_densidade_populacao == 1? 1 : 0);
     printf("PiB per capita: Carta %i venceu (%i) \n", resultado_pib_per_capita, resultado_pib_per_capita == 1 ? 1 : 0);
     printf("super poder: Carta %i venceu (%i)\n", resultado_super_poder, resultado_super_poder == 1? 1 : 2);
+    */
+
+    printf("Comparação de cartas (Atributo: População): \n");
+    printf("Carta 1: %s : %lu\n", nome_cidade_primeira_carta, populacao_primeira_carta);
+    printf("Carta 2: %s : %lu\n", nome_cidade_segunda_carta, populacao_segunda_carta);
+    
+    if(populacao_primeira_carta > populacao_segunda_carta)
+    {
+        printf("Resultado: Carta 1 (%s) Venceu!", nome_cidade_primeira_carta);
+    }
+    else
+    {
+        printf("Resultado: Carta 2 (%s) Venceu!", nome_cidade_segunda_carta);
+    }
     
     return 0;
 }
