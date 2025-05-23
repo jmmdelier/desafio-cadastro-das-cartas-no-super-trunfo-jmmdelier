@@ -1,19 +1,13 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
-//Teste larissa
-
 int main() {
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
+  
+    // ATRIBUTOS: estado, codigo, cidade, populacao, area, densidade, pib, pib per capita, pontos turisticos, super poder
     
     // Variaveis Primeira carta
     char estado_primeira_carta;
-    int codigo_cidade_primeira_carta;
-    char nome_cidade_primeira_carta[25];
+    int codigo_primeira_carta;
+    char cidade_primeira_carta[25];
     unsigned long int populacao_primeira_carta;
     float area_primeira_carta;
     float densidade_pop_primeira_carta;
@@ -24,8 +18,8 @@ int main() {
     
     // Variaveis Segunda carta
     char estado_segunda_carta;
-    int codigo_cidade_segunda_carta;
-    char nome_cidade_segunda_carta[25];
+    int codigo_segunda_carta;
+    char cidade_segunda_carta[25];
     unsigned long int populacao_segunda_carta;
     float area_segunda_carta;
     float densidade_pop_segunda_carta;
@@ -45,12 +39,12 @@ int main() {
     scanf(" %c", &estado_primeira_carta);
 
     printf("Digite o CODIGO da cidade (01-04): \n");
-    scanf("%i", &codigo_cidade_primeira_carta);
+    scanf("%i", &codigo_primeira_carta);
     
     // %[^\n] no scanf é um tipo de regex pra resolver um erro ao tentar ler uma cidade com mais de 1 nome, ex: sao paulo ou rio de janeiro, o que ele faz basicamente é que o sistema vai ler o nome até que o usuário digite a tecla ENTER
     // e aqui novamente o espaço entra deixando antes desse regex é proposital, e evita um erro de leitura, não entendi completamente o porque mas é algo relacionado a buffer de leitura.
     printf("Digite o NOME da cidade: \n");
-    scanf(" %[^\n]", nome_cidade_primeira_carta);
+    scanf(" %[^\n]", cidade_primeira_carta);
  
     printf("Digite a POPULACAO TOTAL da cidade: \n");
     scanf("%lu", &populacao_primeira_carta);
@@ -73,12 +67,12 @@ int main() {
     scanf(" %c", &estado_segunda_carta);
 
     printf("Digite o CODIGO da cidade (01-04): \n");
-    scanf("%i", &codigo_cidade_segunda_carta);
+    scanf("%i", &codigo_segunda_carta);
 
     // %[^\n] no scanf é um tipo de regex pra resolver um erro ao tentar ler uma cidade com mais de 1 nome, ex: sao paulo ou rio de janeiro, o que ele faz basicamente é que o sistema vai ler o nome até que o usuário digite a tecla ENTER
     // e aqui novamente o espaço entra deixando antes desse regex é proposital, e evita um erro de leitura, não entendi completamente o porque mas é algo relacionado a buffer de leitura.
     printf("Digite o NOME da cidade: \n");
-    scanf(" %[^\n]", nome_cidade_segunda_carta);
+    scanf(" %[^\n]", cidade_segunda_carta);
 
     printf("Digite a POPULACAO TOTAL da cidade: \n");
     scanf("%lu", &populacao_segunda_carta);
@@ -128,8 +122,8 @@ int main() {
     printf("\n\n\n###### Primeira carta ######\n");
     printf("Estado: %c\n", estado_primeira_carta);
     // o 0 entre os especificadores de formato é apenas pra ficar formatado conforme o exemplo do exercicio, ficará assim: A01 = /estado0codigo/ = /%c0%i/
-    printf("Codigo: %c0%i\n", estado_primeira_carta, codigo_cidade_primeira_carta);
-    printf("Nome: %s\n", nome_cidade_primeira_carta);
+    printf("Codigo: %c0%i\n", estado_primeira_carta, codigo_primeira_carta);
+    printf("Nome: %s\n", cidade_primeira_carta);
     printf("Populacao: %lu\n", populacao_primeira_carta);
     printf("Area: %f\n", area_primeira_carta);
     printf("PiB: %lf\n", pib_primeira_carta);
@@ -143,8 +137,8 @@ int main() {
     // Exibindo dados da segunda carta
     printf("###### Segunda carta ######\n");
     printf("Estado: %c\n",estado_segunda_carta);
-    printf("Codigo: %c0%i\n",estado_segunda_carta, codigo_cidade_segunda_carta);
-    printf("Nome: %s\n", nome_cidade_segunda_carta);
+    printf("Codigo: %c0%i\n",estado_segunda_carta, codigo_segunda_carta);
+    printf("Nome: %s\n", cidade_segunda_carta);
     printf("Populacao: %luA\n", populacao_segunda_carta);
     printf("Area: %f\n", area_segunda_carta);
     printf("PiB: %lf\n", pib_segunda_carta);
@@ -181,29 +175,29 @@ int main() {
             printf("Comparação entre Populações, a maior vence!\n");
             if(populacao_primeira_carta > populacao_segunda_carta)
             {
-                printf("1 - %s x  2 - %s \n", nome_cidade_primeira_carta, nome_cidade_segunda_carta);
-                printf("População de %s : %lu || População de %s: %lu \n", nome_cidade_primeira_carta, populacao_primeira_carta, nome_cidade_segunda_carta, populacao_segunda_carta);
-                printf("%s Venceu!\n", nome_cidade_primeira_carta);
+                printf("1 - %s x  2 - %s \n", cidade_primeira_carta, cidade_segunda_carta);
+                printf("População de %s : %lu || População de %s: %lu \n", cidade_primeira_carta, populacao_primeira_carta, nome_cidade_segunda_carta, populacao_segunda_carta);
+                printf("%s Venceu!\n", cidade_primeira_carta);
             }
             else
             {
-                printf("1 - %s x  2 - %s \n", nome_cidade_primeira_carta, nome_cidade_segunda_carta);
-                printf("População de %s: %lu || População de %s: %lu \n", nome_cidade_primeira_carta, populacao_primeira_carta, nome_cidade_segunda_carta, populacao_segunda_carta);
-                printf("%s Venceu!\n", nome_cidade_segunda_carta);
+                printf("1 - %s x  2 - %s \n", cidade_primeira_carta, cidade_segunda_carta);
+                printf("População de %s: %lu || População de %s: %lu \n", cidade_primeira_carta, populacao_primeira_carta, cidade_segunda_carta, populacao_segunda_carta);
+                printf("%s Venceu!\n", cidade_segunda_carta);
             }
         break;
         case 2:
             if(area_primeira_carta > area_segunda_carta)
             {
-                printf("1 - %s x  2 - %s \n", nome_cidade_primeira_carta, nome_cidade_segunda_carta);
-                printf("Área de %s: %f || Área de %s: %f \n", nome_cidade_primeira_carta, area_primeira_carta, nome_cidade_segunda_carta, area_segunda_carta);
-                printf("%s Venceu!\n", nome_cidade_primeira_carta);
+                printf("1 - %s x  2 - %s \n", cidade_primeira_carta, cidade_segunda_carta);
+                printf("Área de %s: %f || Área de %s: %f \n", cidade_primeira_carta, area_primeira_carta, cidade_segunda_carta, area_segunda_carta);
+                printf("%s Venceu!\n", cidade_primeira_carta);
             } 
             else
             {
-                printf("1 - %s x  2 - %s \n", nome_cidade_primeira_carta, nome_cidade_segunda_carta);
-                printf("Área de %s: %f || Área de %s: %f \n", nome_cidade_primeira_carta, area_primeira_carta, nome_cidade_segunda_carta, area_segunda_carta);
-                printf("%s Venceu!\n", nome_cidade_segunda_carta);
+                printf("1 - %s x  2 - %s \n", cidade_primeira_carta, cidade_segunda_carta);
+                printf("Área de %s: %f || Área de %s: %f \n", cidade_primeira_carta, area_primeira_carta, cidade_segunda_carta, area_segunda_carta);
+                printf("%s Venceu!\n", cidade_segunda_carta);
             }
         break;
         case 3:
@@ -212,43 +206,43 @@ int main() {
             {
                 printf("Comparação entre PiB, o maior vence!\n");
                 printf("1 - %s X 2 - %s \n");
-                printf("Pib de %s: %lf || PiB de %s: %lf \n", nome_cidade_primeira_carta, pib_per_capita_primeira_carta, nome_cidade_segunda_carta, pib_per_capita_segunda_carta);
-                printf("%s Venceu! \n", nome_cidade_primeira_carta);
+                printf("Pib de %s: %lf || PiB de %s: %lf \n", cidade_primeira_carta, pib_per_capita_primeira_carta, cidade_segunda_carta, pib_per_capita_segunda_carta);
+                printf("%s Venceu! \n", cidade_primeira_carta);
             }
             else
             {
                 printf("Comparação entre PiB, o maior vence!\n");
                 printf("1 - %s X 2 - %s \n");
-                printf("Pib de %s: %lf || PiB de %s: %lf \n", nome_cidade_primeira_carta, pib_per_capita_segunda_carta, nome_cidade_segunda_carta, pib_per_capita_segunda_carta);
-                printf("%s Venceu! \n", nome_cidade_segunda_carta);
+                printf("Pib de %s: %lf || PiB de %s: %lf \n", cidade_primeira_carta, pib_per_capita_segunda_carta, cidade_segunda_carta, pib_per_capita_segunda_carta);
+                printf("%s Venceu! \n", cidade_segunda_carta);
             }
         break;
         case 4:
             printf("Comparação entre pontos turisticos, o maior vence!\n");
             if(numero_pontos_turisticos_primeira_carta > numero_pontos_turisticos_segunda_carta)
             {
-                printf("1 - %s X 2 - %s \n", nome_cidade_primeira_carta, nome_cidade_segunda_carta);
-                printf("Pontos turisticos de %s: %i || Pontos turisticos %s: %i \n", nome_cidade_primeira_carta, numero_pontos_turisticos_primeira_carta, nome_cidade_segunda_carta, pib_per_capita_segunda_carta);
-                printf("%s Venceu! \n", nome_cidade_primeira_carta);
+                printf("1 - %s X 2 - %s \n", cidade_primeira_carta, cidade_segunda_carta);
+                printf("Pontos turisticos de %s: %i || Pontos turisticos %s: %i \n", cidade_primeira_carta, numero_pontos_turisticos_primeira_carta, nome_cidade_segunda_carta, pib_per_capita_segunda_carta);
+                printf("%s Venceu! \n", cidade_primeira_carta);
             }
             else
             {
-                printf("1 - %s X 2 - %s \n", nome_cidade_primeira_carta, nome_cidade_segunda_carta);
-                printf("Pontos turisticos de %s: %i || Pontos turisticos %s: %i \n", nome_cidade_primeira_carta, numero_pontos_turisticos_primeira_carta, nome_cidade_segunda_carta, numero_pontos_turisticos_segunda_carta);
-                printf("%s Venceu! \n", nome_cidade_segunda_carta);
+                printf("1 - %s X 2 - %s \n", cidade_primeira_carta, cidade_segunda_carta);
+                printf("Pontos turisticos de %s: %i || Pontos turisticos %s: %i \n", cidade_primeira_carta, numero_pontos_turisticos_primeira_carta, cidade_segunda_carta, numero_pontos_turisticos_segunda_carta);
+                printf("%s Venceu! \n", cidade_segunda_carta);
             }
         break;
         case 5:
             printf("Comparação entre Densidade demográfica, o menor vence!\n");
             if(densidade_pop_primeira_carta < densidade_pop_segunda_carta)
             {
-                printf("Densidade populacional de %s: %f || Densidade populacional de %s: %f \n", nome_cidade_primeira_carta, densidade_pop_primeira_carta, nome_cidade_segunda_carta, densidade_pop_segunda_carta);
-                printf("%s Venceu! \n", nome_cidade_primeira_carta);
+                printf("Densidade populacional de %s: %f || Densidade populacional de %s: %f \n", cidade_primeira_carta, densidade_pop_primeira_carta, cidade_segunda_carta, densidade_pop_segunda_carta);
+                printf("%s Venceu! \n", cidade_primeira_carta);
             }
             else
             {
     
-                printf("Densidade populacional de %s: %f || Densidade populacional de %s: %f \n", nome_cidade_primeira_carta, densidade_pop_primeira_carta, nome_cidade_segunda_carta, densidade_pop_segunda_carta);
+                printf("Densidade populacional de %s: %f || Densidade populacional de %s: %f \n", cidade_primeira_carta, densidade_pop_primeira_carta, cidade_segunda_carta, densidade_pop_segunda_carta);
                 printf("%s Venceu! \n", densidade_pop_segunda_carta);
             }
         break;
